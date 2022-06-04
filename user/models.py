@@ -6,8 +6,8 @@ from neomodel import   StructuredNode, StringProperty, IntegerProperty, UniqueId
 # Create your models here.
 
 class User(StructuredNode):
-    id = UniqueIdProperty()
-    name = StringProperty(unique_index=True)
+    u_id = UniqueIdProperty()
+    name = StringProperty(index=True)
     age = IntegerProperty(index=True, default=0)
-    email = StringProperty(index=True)
-    password = StringProperty(index=True)
+    email = StringProperty(unique_index=True, default=0)
+    password = StringProperty(index=True, default=0)

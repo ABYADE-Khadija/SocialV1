@@ -1,3 +1,4 @@
+'''
 from neomodel import StructuredNode, StringProperty, IntegerProperty,UniqueIdProperty, RelationshipTo
 from myapi.models.city import City
 
@@ -10,3 +11,4 @@ class Person(StructuredNode):
     # Relations :
     city = RelationshipTo(City, 'LIVES_IN')
     friends = RelationshipTo('Person','FRIEND')
+'''

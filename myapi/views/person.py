@@ -4,9 +4,11 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 
 
+
 def getAllPersons(request):
     if request.method == 'GET':
         try:
+            user = User()
             persons = Person.nodes.all()
             response = []
             for person in persons :
