@@ -31,7 +31,6 @@ def addPost(request):
                 "caption": post.caption,
                 "is_hidden": post.is_hidden,
                 "date": post.date,
-                "relation": res
             }
             return JsonResponse(response)
         except Exception as e:
@@ -57,7 +56,7 @@ def likePost(request):
                 "post_id": post.Post_id,
                 "u_name": user.name,
                 "post_caption": post.caption,
-                "relation": res
+                "relation_date": res.liking_date
             }
             return JsonResponse(response)
         except Exception as e:
@@ -83,7 +82,7 @@ def unlikePost(request):
                 "post_id": post.Post_id,
                 "u_name": user.name,
                 "post_caption": post.caption,
-                "relation": res
+                "creation_date": res
             }
             return JsonResponse(response)
         except Exception as e:
@@ -106,11 +105,13 @@ def updatePost(request):
             #update Post
             post.caption = caption
             post.is_hidden = is_hidden
+            post.date = date
             post.save()
             response = {
                 "Post_id": post.Post_id,
                 "caption": post.caption,
-                "is_hidden": post.is_hidden
+                "is_hidden": post.is_hidden,
+                "updating_date" : post.date
             }
             return JsonResponse(response)
         except Exception as e:
